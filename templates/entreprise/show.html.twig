@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Employes{% endblock %}
+
+{% block body %}
+    <h1>{{ entreprise }}</h1>
+
+    <p>
+        Date de création : {{ entreprise.dateCreation|date('d-m-Y') }} <br>
+        Adresse :<br>
+        {{ entreprise.adresse }} <br>
+        {{ entreprise.cp }} <br>
+        {{ entreprise.ville }}
+    </p>
+
+{% endblock %}
