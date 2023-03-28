@@ -6,6 +6,7 @@
     <h1>{{ entreprise }}</h1>
 
     <p>
+        SIRET : {{ entreprise.siret }} <br>
         Date de création : {{ entreprise.dateCreation|date('d-m-Y') }} <br>
         Adresse :<br>
         {{ entreprise.adresse }} <br>
@@ -13,4 +14,14 @@
         {{ entreprise.ville }}
     </p>
 
+    <h2>Liste des employés</h2>
+
+    {% if entreprise.employes | length == 0 %}
+        <p>Il n'y a pas d'employés dans cette entreprise.</p>
+    {% else %}
+        {% for employe in entreprise.employes %}
+            <a href="{{ path('show_employe', {'id': employe.id}) }}">{{ employe }}</a> <br>
+        {% endfor %}
+    {% endif %}
+    
 {% endblock %}

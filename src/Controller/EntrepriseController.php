@@ -20,6 +20,11 @@ class EntrepriseController extends AbstractController
         ]);
     }
 
+    #[Route("/entreprise/add", name: "add_entreprise")]
+    public function add(ManagerRegistry $doctrine, Entreprise $entreprise = null, Request $request): Response {
+        $form = $this->createForm();
+    }
+
     #[Route("/entreprise/{id}", name: "show_entreprise")]
     public function show() {
         $entreprise = "";
