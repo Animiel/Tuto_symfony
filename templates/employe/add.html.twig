@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un(e) employé(e){% endblock %}
+
+{% block body %}
+    
+    {% if edit %}
+        <h1>Editer un(e) employé(e)</h1>
+    {% else %}
+        <h1>Ajouter un(e) employé(e)</h1>
+    {% endif %}
+
+    {# {{ form(formAddEmploye) }} #}
+
+    {{ form_start(formAddEmploye) }}
+    {# {{ form_errors(form) }} #}
+
+    <div class="nomPrenom">
+        {{ form_row(formAddEmploye.nom) }}
+        {{ form_row(formAddEmploye.prenom) }}
+    </div>
+    <div>
+        {{ form_row(formAddEmploye.dateNaissance) }}
+        {{ form_row(formAddEmploye.dateEmbauche) }}
+        {{ form_row(formAddEmploye.ville) }}
+        {{ form_row(formAddEmploye.entreprise) }}
+        {{ form_row(formAddEmploye.submit) }}
+    </div>
+
+    {# {{ form_row(form.submit, {'label': 'Submit me'}) }} #}
+    {{ form_end(formAddEmploye) }}
+    
+{% endblock %}
